@@ -3,6 +3,7 @@ import qzone1 from '../../../src/assets/qZone1.png'
 import qzone2 from '../../../src/assets/qZone2.png'
 import qzone3 from '../../../src/assets/qZone3.png'
 import newsbg from '../../../src/assets/bg1.png'
+import { Button } from 'react-bootstrap';
 
 const Qzone = () => {
     const containerStyle = {
@@ -23,6 +24,7 @@ const Qzone = () => {
             <div className='bg-secondary'>
                 <h4 className='mx-4 mt-2'>Q-Zone</h4>
                 <div className="text-center mt-2 mb-4">
+                 
                     <img src={qzone1} alt="" />
                     <img src={qzone2} alt="" />
                     <img src={qzone3} alt="" />
@@ -36,6 +38,8 @@ const Qzone = () => {
                 <h2>Create an Amazing Newspaper</h2>
                 <p><small>Discover thousands of options, easy to customize layouts, one-click to import demo and much mor.
                     </small></p>
+                    <Button variant="success">Learn More</Button>
+
             </div>
         </div>
         </div>

@@ -16,7 +16,7 @@ const Header = () => {
             <p className='text-primary'>{moment().format('LLLL')}</p>
             <div className="d-flex">
                 <Button variant="danger">Latest</Button>
-                <Marquee speed={80}>
+                <Marquee className='text-danger' speed={80}>
                     I can be a React component, multiple React components, or just some text......
                     I can be a React component, multiple React components, or just some text......
                 </Marquee>
