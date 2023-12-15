@@ -7,6 +7,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Marquee from 'react-fast-marquee';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
     return (
@@ -31,13 +32,14 @@ const Header = () => {
                             style={{ maxHeight: '100px' }}
                             navbarScroll
                         >
-                            <Nav.Link href="#action1">Home</Nav.Link>
+                            <Link to="/category/0">                            <Nav.Link href="#action1">Home</Nav.Link>
+                            </Link>
                             <Nav.Link href="#action2">about</Nav.Link>
                             <Nav.Link href="#action3">career</Nav.Link>
-                           
+
                         </Nav>
                         <Form className="d-flex">
-                            
+
                             <Button variant="outline-success">Login</Button>
                         </Form>
                     </Navbar.Collapse>
