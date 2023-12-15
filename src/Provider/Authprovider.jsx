@@ -8,22 +8,28 @@ const auth = getAuth(app);
 
 const Authprovider = ({ children }) => {
     const [user, setUser] = useState(null);
+    const [loader,setLoader] =useState(true);
 
     const createUser = (email, pasasword) => {
+        setLoader(true);
         return createUserWithEmailAndPassword(auth, email, pasasword);
     }
+    useEffect(() => {
+        const unsubsCribe=  onAuthStateChanged(auth, currentUser => {
+              setUser(currentUser);
+              setLoader(false);
+          })
+          return ()=>{
+              return unsubsCribe();
+          }
+      }, [])
     const signInuser = (email, password) => {
+       
         return signInWithEmailAndPassword(auth, email, password);
     }
-    useEffect(() => {
-      const unsubsCribe=  onAuthStateChanged(auth, currentUser => {
-            setUser(currentUser);
-        })
-        return ()=>{
-            return unsubsCribe();
-        }
-    }, [])
+   
     const logOut =()=>{
+        setLoader(true);
        return  signOut(auth);
     }
 
@@ -31,7 +37,8 @@ const Authprovider = ({ children }) => {
         user,
         createUser,
         signInuser,
-        logOut
+        logOut,
+        loader,
     };
 
     return (
