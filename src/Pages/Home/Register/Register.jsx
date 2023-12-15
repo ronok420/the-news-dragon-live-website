@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
 import { AuthContext } from '../../../Provider/Authprovider';
+import { Link } from 'react-router-dom';
 
 const Register = () => {
     const {createUser} = useContext(AuthContext);
@@ -57,11 +58,11 @@ const Register = () => {
             </Form.Group>
             <Button variant="primary" type="submit">
                 Register
-            </Button>
+            </Button> <br/>
 
             <Form.Text className="text-muted">
-                We'll never share your email with anyone else.
-            </Form.Text>
+               already have an accout?<Link to="/login">login</Link>
+            </Form.Text> <br/>
             <Form.Text className="text-muted">
                 We'll never share your email with anyone else.
             </Form.Text>

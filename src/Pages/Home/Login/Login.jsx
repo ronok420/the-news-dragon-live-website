@@ -1,11 +1,12 @@
 import React, { useContext } from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../Provider/Authprovider';
 
 
 const Login = () => {
     const {signInuser} =useContext(AuthContext);
+    const navigate=useNavigate();
     
 
     const handleLogin =event =>{
@@ -20,6 +21,7 @@ const Login = () => {
         .then(result=>{
             const loggedUser=result.user;
             console.log(loggedUser);
+            navigate('/category/0')
             form.reset();
         })
         .catch(error=>{
@@ -51,7 +53,7 @@ const Login = () => {
                 </Button><br/>
 
                 <Form.Text className="text-muted">
-                    don't hace account ? <Link to="/register">register</Link>
+                    don't have account ? <Link to="/register">register</Link>
                 </Form.Text> <br/>
                 <Form.Text className="text-muted">
                     We'll never share your email with anyone else.
