@@ -30,6 +30,7 @@ const router =createBrowserRouter([
             {
              path:':id',
              element:<News></News>,
+             loader:({params}) => fetch(`http://localhost:7000/news/${params.id}`)
             },
            
         ]

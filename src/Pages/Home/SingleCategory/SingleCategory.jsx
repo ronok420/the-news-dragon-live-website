@@ -1,9 +1,11 @@
 import React from 'react';
+import './SingleCategory.css'
 import { Card, Image } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { FaBookmark, FaShareAlt, FaEye } from "react-icons/fa";
-import { Rating } from '@smastrom/react-rating'
-import '@smastrom/react-rating/style.css'
+import { Rating } from '@smastrom/react-rating';
+// import { Rating } from '@smastrom/react-rating'
+
 
 const SingleCategory = ({ news }) => {
   const { _id, title, details, image_url, author, rating, total_view } = news;
@@ -25,17 +27,17 @@ const SingleCategory = ({ news }) => {
         <Card.Title>{title}</Card.Title>
         <Card.Img variant="top" src={image_url} />
         <Card.Text>
-          {details.length < 250 ? <>{details}.........<Link>read more</Link></> : <>{details.slice(0, 250)}........<Link>read more</Link></>}
+          {details.length < 250 ? <>{details}.........<Link to={`/news/${_id}`}>read more</Link></> : <>{details.slice(0, 250)}........<Link to={`/news/${_id}`}>read more</Link></>}
         </Card.Text>
 
       </Card.Body>
       <Card.Footer className="text-muted d-flex">
         <div className='flex-grow-1'>
 
-          {/* <Rating
-            emptySymbol={<img src="assets/images/star-empty.png" className="icon" />}
-            fullSymbol={<img src="assets/images/star-full.png" className="icon" />}
-          /> */}
+         
+
+
+
           <span>{rating.number}</span>
         </div>
 
