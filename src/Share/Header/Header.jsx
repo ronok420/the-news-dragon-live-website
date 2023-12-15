@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import logo from '../../../src/assets/logo.png';
 import moment from 'moment';
 import { Button, Container } from 'react-bootstrap';
@@ -8,8 +8,11 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Marquee from 'react-fast-marquee';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../Provider/Authprovider';
+import { FaUserCircle } from 'react-icons/fa';
 
 const Header = () => {
+    const { user } = useContext(AuthContext);
     return (
         <Container className='text-center'>
             <img src={logo} alt="" />
@@ -22,7 +25,7 @@ const Header = () => {
                     I can be a React component, multiple React components, or just some text......
                 </Marquee>
             </div>
-            <Navbar expand="lg" className="mt-2 bg-body-tertiary">
+            {/* <Navbar expand="lg" className="mt-2 bg-body-tertiary">
                 <Container fluid>
                     <Navbar.Brand href="#">Navbar scroll</Navbar.Brand>
                     <Navbar.Toggle aria-controls="navbarScroll" />
@@ -40,11 +43,16 @@ const Header = () => {
                         </Nav>
                         <Form className="d-flex">
 
-                            <Button variant="outline-success">Login</Button>
+                           {user && <nav><FaUserCircle style={{fontSize:"2rem"}}/></nav>}
+                           {
+                            user?
+                             <Button className='mx-2' variant="outline-success">Logout</Button> :
+                             <Button className='mx-2' variant="outline-success">Login</Button>
+       }
                         </Form>
                     </Navbar.Collapse>
                 </Container>
-            </Navbar>
+            </Navbar> */}
         </Container>
     );
 };
